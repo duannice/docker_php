@@ -4,6 +4,7 @@ RUN docker-php-source extract \
     && apk add libpng-dev \
     && apk add libzip-dev \
     && apk add freetype-dev \
+    && apk add php7-opcache \
     && docker-php-ext-install  pdo_mysql \
     && docker-php-ext-install  mysqli \
     && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
@@ -19,5 +20,4 @@ RUN docker-php-source extract \
     && docker-php-ext-enable bcmath \
     && docker-php-source delete \
     && rm -rf /var/cache/apk/* \
-    && rm -rf /tmp/pear/download/* \
-    && apk add php7-opcache
+    && rm -rf /tmp/pear/download/* 
