@@ -1,4 +1,4 @@
-FROM php:7.4.28-fpm-alpine
+FROM php:7.4.28-fpm-alpine3.12
 RUN docker-php-source extract \ 
     && apk add libjpeg-turbo-dev \
     && apk add libpng-dev \
@@ -16,8 +16,6 @@ RUN docker-php-source extract \
     && docker-php-ext-enable zip \
     && pecl install mongodb \
     && docker-php-ext-enable mongodb \
-    && docker-php-ext-install bcmath \
-    && docker-php-ext-enable bcmath \
     && docker-php-source delete \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/pear/download/* 
