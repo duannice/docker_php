@@ -3,7 +3,7 @@ LABEL maintainer="DuanLujian <379167658@qq.com>"
 WORKDIR /tmp/
 RUN wget https://www.php.net/distributions/php-7.4.33.tar.gz \
         && tar zxf php-7.4.33.tar.gz && cd /tmp/php-7.4.33/ \
-        && apk --update add --virtual gcc make g++ zlib-dev libxml2-dev libzip-dev expat-dev openssl-dev sqlite-dev curl-dev gettext-dev gmp-dev openldap-dev oniguruma-dev net-snmp-dev gdbm-dev libpng-dev libwebp-dev libjpeg-turbo-dev freetype-dev \
+        && apk add --virtual gcc make g++ zlib-dev libxml2-dev libzip-dev expat-dev openssl-dev sqlite-dev curl-dev gettext-dev gmp-dev openldap-dev oniguruma-dev net-snmp-dev gdbm-dev libpng-dev libwebp-dev libjpeg-turbo-dev freetype-dev \
         && ./configure --prefix=/usr/local/php \
         --with-config-file-path=/usr/local/php/etc/ \
         --with-mysqli \
