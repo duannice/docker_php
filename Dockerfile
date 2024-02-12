@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-alpine-3.13
+FROM php:7.4.33-fpm-alpine-3.12
 RUN docker-php-source extract \ 
     && apk add libjpeg-turbo-dev \
     && apk add libpng-dev \
