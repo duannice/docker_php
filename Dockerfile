@@ -48,6 +48,6 @@ RUN wget https://www.php.net/distributions/php-7.4.33.tar.gz \
         --enable-opcache \
         --enable-mysqlnd 
         RUN cd /tmp/php-7.4.33/  make && make install
-        RUN mkdir -p /usr/local/php/etc/ && cp php.ini-production /usr/local/php/etc/php.ini && cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf && cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf  &&  rm -rf /tmp/*
+        RUN mkdir -p /usr/local/php/etc/ && cp /tmp/php-7.4.33/php.ini-production /usr/local/php/etc/php.ini && cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf && cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf  &&  rm -rf /tmp/*
 EXPOSE 9000
 CMD ["/usr/local/php/sbin/php-fpm"]
