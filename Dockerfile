@@ -57,4 +57,4 @@ RUN wget https://www.php.net/distributions/php-7.4.33.tar.gz \
 #删除包
         && apk del .build-deps
 EXPOSE 9000
-CMD ["/usr/local/php/sbin/php-fpm"]
+CMD ["/usr/local/php/sbin/php-fpm","-F"]
