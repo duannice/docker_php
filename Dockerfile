@@ -1,4 +1,4 @@
-FROM FROM alpine:3.13
+FROM  alpine:3.13
 LABEL maintainer="DuanLujian <379167658@qq.com>"
 WORKDIR /tmp/
 RUN wget https://www.php.net/distributions/php-7.4.33.tar.gz \
