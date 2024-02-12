@@ -1,4 +1,4 @@
-FROM php:7.4.33-fpm-alpine-3.12
+FROM php:7.4.33-fpm-alpine
 WORKDIR /var/www
 RUN docker-php-source extract \ 
 && apk add --no-cache autoconf libcurl curl-dev libjpeg jpeg-dev libpng libpng-dev icu-dev libzip libzip-dev shadow freetype freetype-dev libpq postgresql-dev \
