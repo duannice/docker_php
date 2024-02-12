@@ -2,7 +2,7 @@ FROM  alpine:3.13
 LABEL maintainer="DuanLujian <379167658@qq.com>"
 WORKDIR /tmp/
 RUN wget https://www.php.net/distributions/php-7.4.33.tar.gz \
-        && tar zxf php-7.4.33.tar.gz && cd php-7.4.33/ \
+        && tar zxf php-7.4.33.tar.gz && cd /tmp/php-7.4.33/ \
         && apk --update add gcc make g++ zlib-dev libxml2-dev libzip-dev expat-dev openssl-dev sqlite-dev curl-dev gettext-dev gmp-dev openldap-dev oniguruma-dev net-snmp-dev gdbm-dev libpng-dev libwebp-dev libjpeg-turbo-dev freetype-dev \
         && ./configure --prefix=/usr/local/php \
         --with-config-file-path=/usr/local/php/etc/ \
@@ -47,7 +47,7 @@ RUN wget https://www.php.net/distributions/php-7.4.33.tar.gz \
         --disable-rpath \
         --enable-opcache \
         --enable-mysqlnd 
-        && make && make install
-RUN mkdir -p /usr/local/php/etc/ && cp php.ini-production /usr/local/php/etc/php.ini && cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf && cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf  &&  rm -rf /tmp/*
+        RUN cd /tmp/php-7.4.33/  make && make install
+        RUN mkdir -p /usr/local/php/etc/ && cp php.ini-production /usr/local/php/etc/php.ini && cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf && cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf  &&  rm -rf /tmp/*
 EXPOSE 9000
 CMD ["/usr/local/php/sbin/php-fpm"]
