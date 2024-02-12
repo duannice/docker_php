@@ -12,5 +12,5 @@ RUN docker-php-source extract \
         && docker-php-source delete \
         && rm -rf /var/cache/apk/* \
         && rm -rf /tmp/pear/download/*  \
-        && rm -rf /tmp/* && \
+        && rm -rf /tmp/*  \
         && apk del .memcached-deps .phpize-deps
