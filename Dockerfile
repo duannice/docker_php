@@ -2,9 +2,6 @@ FROM  alpine:3.13
 LABEL maintainer="DuanLujian <379167658@qq.com>"
 WORKDIR /tmp/
 RUN wget https://www.php.net/distributions/php-8.2.16.tar.gz \
-        #&& echo http://mirrors.aliyun.com/alpine/v3.13/main/ > /etc/apk/repositories \
-        #&& echo http://mirrors.aliyun.com/alpine/v3.13/community/ >> /etc/apk/repositories \
-        && apk update \
         && tar zxf php-8.2.16.tar.gz && cd /tmp/php-8.2.16/ \
         && apk add --no-cache  --virtual .build-deps  gcc make g++ \
         && apk add --no-cache tidyhtml-dev  zlib-dev libxml2-dev libzip-dev expat-dev openssl-dev sqlite-dev curl-dev gettext-dev gmp-dev openldap-dev oniguruma-dev net-snmp-dev gdbm-dev libpng-dev libwebp-dev libjpeg-turbo-dev freetype-dev \
