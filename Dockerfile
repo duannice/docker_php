@@ -7,7 +7,7 @@ RUN wget https://www.php.net/distributions/php-8.2.16.tar.gz \
         && apk update \
         && tar zxf php-8.2.16.tar.gz && cd /tmp/php-8.2.16/ \
         && apk add --no-cache  --virtual .build-deps  gcc make g++ \
-        && apk add --no-cache php7-tidy  zlib-dev libxml2-dev libzip-dev expat-dev openssl-dev sqlite-dev curl-dev gettext-dev gmp-dev openldap-dev oniguruma-dev net-snmp-dev gdbm-dev libpng-dev libwebp-dev libjpeg-turbo-dev freetype-dev \
+        && apk add --no-cache tidyhtml-dev  zlib-dev libxml2-dev libzip-dev expat-dev openssl-dev sqlite-dev curl-dev gettext-dev gmp-dev openldap-dev oniguruma-dev net-snmp-dev gdbm-dev libpng-dev libwebp-dev libjpeg-turbo-dev freetype-dev \
 #编译
         && ./configure --prefix=/usr/local/php \
         --with-config-file-path=/usr/local/php/etc/ \
