@@ -1,8 +1,8 @@
 FROM  alpine:3.13
 LABEL maintainer="DuanLujian <379167658@qq.com>"
 WORKDIR /tmp/
-RUN wget https://www.php.net/distributions/php-8.3.3.tar.gz \
-        && tar zxf php-8.3.3.tar.gz && cd /tmp/php-8.3.3/ \
+RUN wget https://www.php.net/distributions/php-8.2.16.tar.gz \
+        && tar zxf php-8.3.3.tar.gz && cd /tmp/php-8.2.16/ \
         && apk add --no-cache  --virtual .build-deps  gcc make g++ \
         && apk add --no-cache  zlib-dev libxml2-dev libzip-dev expat-dev openssl-dev sqlite-dev curl-dev gettext-dev gmp-dev openldap-dev oniguruma-dev net-snmp-dev gdbm-dev libpng-dev libwebp-dev libjpeg-turbo-dev freetype-dev \
 #编译
@@ -29,6 +29,8 @@ RUN wget https://www.php.net/distributions/php-8.3.3.tar.gz \
         --with-ldap \
         --with-ldap-sasl \
         --with-zip \
+        --with-tidy \
+        --with-wddx \
         --enable-xml \
         --enable-gd \
         --enable-fpm \
@@ -47,10 +49,10 @@ RUN wget https://www.php.net/distributions/php-8.3.3.tar.gz \
         --disable-rpath \
         --enable-opcache \
         --enable-mysqlnd \
-        && cd /tmp/php-8.3.3/ \
+        && cd /tmp/php-8.2.16/ \
         && make && make install \
         && mkdir -p /usr/local/php/etc/ \
-        && cp /tmp/php-7.3.3/php.ini-production /usr/local/php/etc/php.ini \
+        && cp /tmp/php-7.2.16/php.ini-production /usr/local/php/etc/php.ini \
         && cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf \
         && cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf \
         &&  rm -rf /tmp/* \
