@@ -55,7 +55,7 @@ RUN wget https://www.php.net/distributions/php-8.2.16.tar.gz \
         && cd /tmp/php-8.2.16/ \
         && make && make install \
         && mkdir -p /usr/local/php/etc/ \
-        && cp /tmp/php-7.2.16/php.ini-production /usr/local/php/etc/php.ini \
+        && cp /tmp/php-8.2.16/php.ini-production /usr/local/php/etc/php.ini \
         && cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf \
         && cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf \
         &&  rm -rf /tmp/* \
